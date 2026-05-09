@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Natalie 🎀</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Floating confetti -->
+  <div class="confetti-container" id="confetti"></div>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <!-- Main wrapper -->
+  <main class="wrapper">
+
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="ribbon ribbon-left">🎀</div>
+      <div class="ribbon ribbon-right">🎀</div>
+
+      <div class="cake-container">
+        <div class="cake-glow"></div>
+        <div class="cake">
+          <div class="candle-row">
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+            <div class="candle"><div class="flame"></div></div>
+          </div>
+          <div class="cake-top">🌸</div>
+          <div class="cake-middle">✨</div>
+          <div class="cake-bottom">🍓</div>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <p class="subtitle-top">✨ Selamat Ulang Tahun ✨</p>
+        <h1 class="main-name">Natalie</h1>
+        <p class="subtitle-bottom">Hari ini adalah hari yang sangat spesial!</p>
+      </div>
+
+      <div class="balloon-group">
+        <div class="balloon b1">🎈</div>
+        <div class="balloon b2">🎈</div>
+        <div class="balloon b3">🎈</div>
+        <div class="balloon b4">🎈</div>
+        <div class="balloon b5">🎈</div>
+      </div>
+    </section>
+
+    <!-- Message cards -->
+    <section class="cards-section">
+      <div class="card card-pink">
+        <span class="card-icon">💖</span>
+        <h3>Semoga Bahagia</h3>
+        <p>Semoga hari-harimu selalu dipenuhi tawa, cinta, dan kebahagiaan yang tak bertepi. Kamu berhak mendapatkan semua hal terbaik di dunia!</p>
+      </div>
+      <div class="card card-lavender">
+        <span class="card-icon">🌸</span>
+        <h3>Semoga Sukses</h3>
+        <p>Setiap mimpimu semoga menjadi kenyataan. Kamu adalah perempuan luar biasa yang mampu meraih bintang-bintang di langit!</p>
+      </div>
+      <div class="card card-mint">
+        <span class="card-icon">✨</span>
+        <h3>Semoga Sehat Selalu</h3>
+        <p>Kesehatan adalah mahkota terindah. Semoga tubuh dan jiwamu selalu sehat, kuat, dan bersemangat setiap harinya!</p>
+      </div>
+    </section>
+
+    <!-- Special message -->
+    <section class="special-msg">
+      <div class="msg-box">
+        <div class="msg-deco top-deco">🌷 🌸 🌷</div>
+        <p class="msg-title">Pesan Spesial</p>
+        <p class="msg-content">
+          Happy Birthday, <span class="highlight">Natalie</span>! 🎉<br><br>
+          Di hari yang indah ini, semoga semua doa dan harapanmu terwujud. 
+          Jadilah versi terbaik dari dirimu sendiri, karena kamu sungguh 
+          luar biasa dan sangat dicintai oleh banyak orang. 
+          <br><br>
+          Terus bersinar seperti bintang paling terang! 🌟
+        </p>
+        <div class="msg-deco bot-deco">💝 🎀 💝</div>
+      </div>
+    </section>
+
+    <!-- Count down / Wish section -->
+    <section class="wish-section">
+      <h2 class="wish-title">🕯️ Tiup Lilinnya & Buat Wish! 🕯️</h2>
+      <div class="wish-area">
+        <textarea id="wishInput" placeholder="Tuliskan keinginanmu di sini... 🌠" maxlength="200"></textarea>
+        <button class="wish-btn" onclick="sendWish()">🎀 Kirim Wish! 🎀</button>
+      </div>
+      <div class="wish-result" id="wishResult"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with 💖 especially for <strong>Natalie</strong></p>
+      <p class="footer-emojis">🎂 🎈 🎀 ✨ 🌸 💕 🎉</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // ---- Confetti ----
+    const confettiContainer = document.getElementById('confetti');
+    const confettiColors = ['#ff9ec7','#ffb347','#b39ddb','#80cbc4','#f06292','#fff176','#a5d6a7','#ce93d8'];
+    const confettiShapes = ['●','★','♥','◆','✿','❋'];
+    for (let i = 0; i < 70; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-piece';
+      el.textContent = confettiShapes[Math.floor(Math.random() * confettiShapes.length)];
+      el.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        top: ${Math.random() * -20}vh;
+        color: ${confettiColors[Math.floor(Math.random() * confettiColors.length)]};
+        font-size: ${8 + Math.random() * 16}px;
+        animation-duration: ${3 + Math.random() * 5}s;
+        animation-delay: ${Math.random() * 5}s;
+        opacity: ${0.6 + Math.random() * 0.4};
+      `;
+      confettiContainer.appendChild(el);
+    }
+
+    // ---- Floating hearts background ----
+    const heartsBg = document.getElementById('heartsBg');
+    const heartEmojis = ['💕','💖','💗','💓','💞','🌸','✨'];
+    for (let i = 0; i < 20; i++) {
+      const el = document.createElement('div');
+      el.className = 'heart-bg-item';
+      el.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+      el.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        top: ${10 + Math.random() * 80}vh;
+        font-size: ${20 + Math.random() * 30}px;
+        animation-duration: ${4 + Math.random() * 6}s;
+        animation-delay: ${Math.random() * 4}s;
+        opacity: 0.12;
+      `;
+      heartsBg.appendChild(el);
+    }
+
+    // ---- Wish button ----
+    const wishes = [
+      "🌟 Semoga wishmu terkabul, Natalie! Kamu layak mendapat semuanya! 🌟",
+      "💖 Bintang-bintang sudah dengar doamu! Semoga terwujud ya! 💖",
+      "🎀 Alam semesta sudah mencatat wishmu! Percaya aja! 🎀",
+      "✨ Keajaiban sedang dalam perjalanan menuju hidupmu! ✨",
+      "🌸 Semoga semua yang kamu inginkan menjadi nyata! Semangat! 🌸",
+    ];
+    function sendWish() {
+  const val = document.getElementById('wishInput').value.trim();
+  const result = document.getElementById('wishResult');
+
+  // 1. Validasi jika input kosong
+  if (!val) {
+    result.innerHTML = '<span style="color:#e91e8c">⚠️ Tuliskan dulu wishmu, Natalie!</span>';
+    result.classList.add('show');
+    return;
+  }
+
+  // 2. Jalankan animasi asli (munculkan teks random & hati)
+  const msg = wishes[Math.floor(Math.random() * wishes.length)];
+  result.innerHTML = msg;
+  result.classList.add('show');
+  spawnHeartsAnimation();
+
+  // 3. Logika Kirim ke WhatsApp
+  const nomorWA = "6585641241851"; 
+  const linkWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(val)}`;
+
+  // Beri jeda 1 detik agar user bisa melihat animasi di web dulu sebelum pindah ke WA
+  setTimeout(() => {
+    window.open(linkWA, '_blank');
+  }, 1000);
+}
+
+
+    function spawnHeartsAnimation() {
+      for (let i = 0; i < 15; i++) {
+        const h = document.createElement('div');
+        h.className = 'burst-heart';
+        h.textContent = ['💖','💕','✨','🌸','🎀'][Math.floor(Math.random() * 5)];
+        h.style.cssText = `
+          left: ${30 + Math.random() * 40}vw;
+          top: ${40 + Math.random() * 30}vh;
+          font-size: ${16 + Math.random() * 20}px;
+          animation-delay: ${Math.random() * 0.5}s;
+        `;
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 2000);
+      }
+    }
+  </script>
+</body>
+</html>
